@@ -1,12 +1,13 @@
 {
     "name": "hexlet/code",
     "description": "hexlet php project",
-    "type": "project",
+    "type": "library",
     "authors": [
         {
             "name": "Ev Sivkova",
             "email": "ev.sivkova@outlook.com"
         }
     ],
+    "license": "MIT",
     "require": {}
 }
