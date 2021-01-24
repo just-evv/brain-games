@@ -1,0 +1,12 @@
+{
+    "name": "hexlet/code",
+    "description": "hexlet php project",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Ev Sivkova",
+            "email": "ev.sivkova@outlook.com"
+        }
+    ],
+    "require": {}
+}
