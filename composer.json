@@ -10,11 +10,13 @@
     ],
     "license": "MIT",
     "bin": [
-        "bin/brain-games"
+        "bin/brain-games",
+        "bin/brain-even"
     ],
     "autoload": {
         "files": [
-            "src/Cli.php"
+            "src/Cli.php",
+            "src/Even.php"
         ]
     },
     "require": {
@@ -24,7 +26,6 @@
         "squizlabs/php_codesniffer": "^3.5"
     },
     "scripts": {
-        "phpcs": "phpcs"          
-        
+        "phpcs": "phpcs"
     }
 }
