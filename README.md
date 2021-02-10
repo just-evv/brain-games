@@ -5,4 +5,4 @@
 
 [![PHP CI](https://github.com/just-evv/php-project-lvl1/workflows/PHP%20CI/badge.svg)](https://github.com/just-evv/php-project-lvl1/actions)
 
-[![asciicast](https://asciinema.org/a/upBCokebkZ7oGHepHRR5SLY2k.svg)](https://asciinema.org/a/upBCokebkZ7oGHepHRR5SLY2k?speed=2)
+<a href="https://asciinema.org/a/upBCokebkZ7oGHepHRR5SLY2k" target="_blank"><img src="https://asciinema.org/a/upBCokebkZ7oGHepHRR5SLY2k.svg" /></a>
