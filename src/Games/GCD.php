@@ -5,6 +5,14 @@ namespace Brain\Games\Cli;
 use function cli\line;
 use function cli\prompt;
 
+function gcd($a, $b)
+{
+    $large = $a > $b ? $a: $b;
+    $small = $a > $b ? $b: $a;
+    $remainder = $large % $small;
+    return 0 === $remainder ? $small : gcd($small, $remainder);
+}
+
 function brainGcd()
 {
     $name = welcome();
@@ -15,14 +23,15 @@ function brainGcd()
     while ($i <= 3) {
         //Вопрос
         $numb1 = random_int(1, 10);
-        $numb2 = random_int(1, 50);
-        line('Answer "yes" if the number is even, otherwise answer "no".');
+        $numb2 = random_int(1, 20);
+        line('Find the greatest common divisor of given numbers.');
         line("Question: {$numb1} {$numb2}");
         $answer = prompt('Your answer');
-        $rightAnswer = gmp_gcd($numb1, $numb2);
+        $rightAnswer = gcd($numb1, $numb2);
         
+
         //Сравнение
-        if ($answer === $rightAnswer) {
+        if ((int)$answer === $rightAnswer) {
             $counter += 1;
             echo("Correct!\n");
         } else  {
