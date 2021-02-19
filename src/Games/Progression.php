@@ -11,14 +11,14 @@ function getProgression()
     $increment = random_int(1, 10);
     $arr = [];
     $length = random_int(10, 20);
-    for ($i = 0; $i <= $lengh; $i++) {
+    for ($i = 0; $i <= $length; $i++) {
         $arr[$i] = $count;
         $count = $count + $increment;
     };
     return $arr;
 }
 
-function progression()
+function brainProgression()
 {
     $name = welcome();
 
