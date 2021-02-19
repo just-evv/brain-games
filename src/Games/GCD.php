@@ -7,10 +7,10 @@ use function cli\prompt;
 
 function gcd($a, $b)
 {
-    $large = $a > $b ? $a: $b;
-    $small = $a > $b ? $b: $a;
+    $l = $a > $b ? $a : $b;
+    $s = $a > $b ? $b : $a;
     $remainder = $large % $small;
-    return 0 === $remainder ? $small : gcd($small, $remainder);
+    return 0 === $remainder ? $s : gcd($s, $remainder);
 }
 
 function brainGcd()
@@ -28,13 +28,11 @@ function brainGcd()
         line("Question: {$numb1} {$numb2}");
         $answer = prompt('Your answer');
         $rightAnswer = gcd($numb1, $numb2);
-        
-
         //Сравнение
-        if ((int)$answer === $rightAnswer) {
+        if ($rightAnswer === (int)$answer) {
             $counter += 1;
             echo("Correct!\n");
-        } else  {
+        } else {
             echo("'{$answer}' is wrong answer ;(. Correct answer was '{$rightAnswer}'.\nLet's try again, {$name}!\n");
         };
         $i += 1;
