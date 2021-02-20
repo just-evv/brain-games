@@ -42,14 +42,9 @@ function brainCalc()
         //Question
         line('What is the result of the expression?');
         line("Question: {$numb1} {$item} {$numb2}");
-        $answer = prompt('Your answer');
+        $answer = (int)prompt('Your answer');
         //Checking
-        if ($rightAnswer === (int)$answer) {
-            echo("Correct!\n");
-            $counter += 1;
-        } else {
-            echo("'{$answer}' is wrong answer ;(. Correct answer was '{$rightAnswer}'.\nLet's try again, {$name}!\n");
-        };
+        $counter = checkAnswer($answer, $rightAnswer, $name, $counter);
         $i += 1;
     };
 

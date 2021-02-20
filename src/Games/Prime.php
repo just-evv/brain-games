@@ -29,19 +29,12 @@ function brainPrime()
     while ($i <= 3) {
         $number = random_int(1, 50);
         $rightAnswer = checkPrime($number);
-
+        //Question
         line('Answer "yes" if given number is prime. Otherwise answer "no".');
         line("Question: {$number}");
         $answer = prompt('Your answer');
-
         //Checking
-        if ($rightAnswer === $answer) {
-            $counter += 1;
-            echo("Correct!\n");
-        } else {
-            echo("'{$answer}' is wrong answer ;(. Correct answer was '{$rightAnswer}'.\nLet's try again, {$name}!\n");
-        };
-
+        $counter = checkAnswer($answer, $rightAnswer, $name, $counter);
         $i += 1;
     };
 

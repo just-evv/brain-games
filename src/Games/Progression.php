@@ -35,15 +35,9 @@ function brainProgression()
         //Question
         line('What number is missing in the progression?');
         line("Question: {$tmp}");
-        $answer = prompt('Your answer');
+        $answer = (int)prompt('Your answer');
         //Checking
-        if ($rightAnswer === (int)$answer) {
-            $counter += 1;
-            echo("Correct!\n");
-        } else {
-            echo("'{$answer}' is wrong answer ;(. Correct answer was '{$rightAnswer}'.\nLet's try again, {$name}!\n");
-        };
-
+        $counter = checkAnswer($answer, $rightAnswer, $name, $counter);
         $i += 1;
     };
 

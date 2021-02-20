@@ -20,17 +20,12 @@ function brainEven()
     while ($i <= 3) {
         $number = random_int(1, 100);
         $rightAnswer = checkEven($number);
-        //Вопрос
+        //Question
         line('Answer "yes" if the number is even, otherwise answer "no".');
         line("Question: {$number}");
         $answer = prompt('Your answer');
-        //Сравнение
-        if ($rightAnswer === $answer) {
-            $counter += 1;
-            echo("Correct!\n");
-        } else {
-            echo("'{$answer}' is wrong answer ;(. Correct answer was '{$rightAnswer}'.\nLet's try again, {$name}!\n");
-        };
+        //Checking
+        $counter = checkAnswer($answer, $rightAnswer, $name, $counter);
         $i += 1;
     };
 
