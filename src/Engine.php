@@ -22,7 +22,6 @@ function congratulations(int $counter, $name)
 
 function checkAnswer($answer, $rightAnswer, $name, $counter)
 {
-    
     if ($rightAnswer === $answer) {
         $counter += 1;
         echo("Correct!\n");
