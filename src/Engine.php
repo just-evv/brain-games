@@ -19,3 +19,15 @@ function congratulations(int $counter, $name)
         echo("Congratulations, {$name}!\n");
     };
 }
+
+function checkAnswer($answer, $rightAnswer, $name, $counter)
+{
+    
+    if ($rightAnswer === $answer) {
+        $counter += 1;
+        echo("Correct!\n");
+    } else {
+        echo("'{$answer}' is wrong answer ;(. Correct answer was '{$rightAnswer}'.\nLet's try again, {$name}!\n");
+    };
+    return $counter;
+}
