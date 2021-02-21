@@ -31,7 +31,7 @@ function brainProgression()
         $randIndex = array_rand($arr);
         $rightAnswer = $arr[$randIndex];
         $arr[$randIndex] = '..';
-        $tmp = implode(",", $arr);
+        $tmp = implode(" ", $arr);
         //Question
         line('What number is missing in the progression?');
         line("Question: {$tmp}");
