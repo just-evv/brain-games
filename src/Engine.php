@@ -25,8 +25,12 @@ function checkAnswer($answer, $rightAnswer, $name, $counter)
     if ($rightAnswer === $answer) {
         $counter += 1;
         echo("Correct!\n");
+        if ($counter === 3) {
+            echo("Congratulations, {$name}!\n");
+        }
     } else {
         echo("'{$answer}' is wrong answer ;(. Correct answer was '{$rightAnswer}'.\nLet's try again, {$name}!\n");
+        $counter = 3;
     };
     return $counter;
 }
