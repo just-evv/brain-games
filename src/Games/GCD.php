@@ -18,7 +18,9 @@ function brainGcd()
     $name = welcome();
 
     $counter = 0;
-    while ($counter < 3) {
+    $i = 1;
+
+    while ($i <= 3) {
         $numb1 = random_int(1, 10);
         $numb2 = random_int(1, 20);
         $rightAnswer = gcd($numb1, $numb2);
@@ -28,5 +30,8 @@ function brainGcd()
         $answer = (int)prompt('Your answer');
         //Checking
         $counter = checkAnswer($answer, $rightAnswer, $name, $counter);
-    }
+        $i += 1;
+    };
+
+    congratulations($counter, $name);
 }

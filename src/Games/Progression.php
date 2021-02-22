@@ -23,8 +23,9 @@ function brainProgression()
     $name = welcome();
 
     $counter = 0;
+    $i = 1;
 
-    while ($counter < 3) {
+    while ($i <= 3) {
         //Creating a sequence
         $arr = getProgression();
         $randIndex = array_rand($arr);
@@ -37,5 +38,8 @@ function brainProgression()
         $answer = (int)prompt('Your answer');
         //Checking
         $counter = checkAnswer($answer, $rightAnswer, $name, $counter);
-    }
+        $i += 1;
+    };
+
+    congratulations($counter, $name);
 }
