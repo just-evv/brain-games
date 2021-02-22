@@ -5,7 +5,7 @@ namespace Brain\Games\Cli;
 use function cli\line;
 use function cli\prompt;
 
-function getProgression()
+function getProgression(): array
 {
     $count = random_int(1, 20);
     $increment = random_int(1, 10);
@@ -18,7 +18,7 @@ function getProgression()
     return $arr;
 }
 
-function brainProgression()
+function brainProgression(): void
 {
     $name = welcome();
 
@@ -27,7 +27,7 @@ function brainProgression()
         //Creating a sequence
         $arr = getProgression();
         $randIndex = array_rand($arr);
-        $rightAnswer = $arr[$randIndex];
+        $rightAnswer = (string)$arr[$randIndex];
         $arr[$randIndex] = '..';
         $tmp = implode(" ", $arr);
         //Question
