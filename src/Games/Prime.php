@@ -5,7 +5,7 @@ namespace Brain\Games\Cli;
 use function cli\line;
 use function cli\prompt;
 
-function checkPrime($number)
+function checkPrime(int $number): string
 {
     if ($number === 1) {
         return 'yes';
@@ -19,7 +19,7 @@ function checkPrime($number)
     }
 }
 
-function brainPrime()
+function brainPrime(): void
 {
     $name = welcome();
 
