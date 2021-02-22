@@ -15,7 +15,6 @@ function brainEven()
     $name = welcome();
 
     $counter = 0;
-    
     while ($counter < 3) {
         $number = random_int(1, 100);
         $rightAnswer = checkEven($number);
