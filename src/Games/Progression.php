@@ -33,7 +33,7 @@ function brainProgression(): void
         //Question
         line('What number is missing in the progression?');
         line("Question: {$tmp}");
-        $answer = (int)prompt('Your answer');
+        $answer = prompt('Your answer');
         //Checking
         $counter = checkAnswer($answer, $rightAnswer, $name, $counter);
     }
