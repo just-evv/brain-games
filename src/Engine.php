@@ -5,7 +5,7 @@ namespace Brain\Games\Cli;
 use function cli\line;
 use function cli\prompt;
 
-function welcome(): string
+function welcome()
 {
     line('Welcome to the Brain Game!');
     $name = prompt('May I have your name?');
@@ -13,14 +13,14 @@ function welcome(): string
     return $name;
 }
 
-function congratulations(int $counter, string $name): string
+function congratulations(int $counter, $name)
 {
     if ($counter === 3) {
         echo("Congratulations, {$name}!\n");
     };
 }
 
-function checkAnswer($answer, $rightAnswer, string $name, int $counter): int
+function checkAnswer($answer, $rightAnswer, $name, $counter)
 {
     if ($rightAnswer === $answer) {
         $counter += 1;
