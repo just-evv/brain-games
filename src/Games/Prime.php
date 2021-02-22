@@ -24,9 +24,8 @@ function brainPrime()
     $name = welcome();
 
     $counter = 0;
-    $i = 1;
 
-    while ($i <= 3) {
+    while ($counter < 3) {
         $number = random_int(1, 50);
         $rightAnswer = checkPrime($number);
         //Question
@@ -35,8 +34,5 @@ function brainPrime()
         $answer = prompt('Your answer');
         //Checking
         $counter = checkAnswer($answer, $rightAnswer, $name, $counter);
-        $i += 1;
-    };
-
-    congratulations($counter, $name);
+    }
 }

@@ -29,11 +29,10 @@ function brainCalc()
     $name = welcome();
 
     $counter = 0;
-    $i = 0;
 
     $operators = ['+', '-', '*'];
 
-    while ($i < 3) {
+    while ($counter < 3) {
         $numb1 = random_int(1, 10);
         $numb2 = random_int(1, 10);
         $randIndex = array_rand($operators);
@@ -44,6 +43,6 @@ function brainCalc()
         line("Question: {$numb1} {$item} {$numb2}");
         $answer = (int)prompt('Your answer');
         //Checking
-        $i = checkAnswer($answer, $rightAnswer, $name, $i);
-    };
+        $counter = checkAnswer($answer, $rightAnswer, $name, $counter);
+    }
 }
