@@ -1,6 +1,8 @@
 #!/usr/bin/env php
 <?php
 
+declare(strict_types=1);
+
 namespace Brain\Games\Cli;
 
 $autoloadPath1 = __DIR__ . '/../../../autoload.php';
