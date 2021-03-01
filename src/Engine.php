@@ -42,7 +42,7 @@ function checkAnswer(
     return $count;
 }
 
-function playGame(): void
+function playGame(string $game): void
 {
     $name = getName();
 
@@ -51,7 +51,7 @@ function playGame(): void
 
     while ($count < $lastGame) {
         //getResult return array with firts item - expected answer and the  second Qestion to be asked.
-        $arr = getResult();
+        $arr = $game();
         $rightAnswer = $arr[0];
         $question = $arr[1];
         //Question

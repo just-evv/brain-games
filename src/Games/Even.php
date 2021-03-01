@@ -7,7 +7,7 @@ namespace Brain\Games\Cli;
 use function cli\line;
 use function cli\prompt;
 
-function getResult(): array
+function getEven(): array
 {
     $min = 1;
     $max = 100;
@@ -20,5 +20,5 @@ function getResult(): array
 
 function playEven(): void
 {
-    playGame();
+    playGame(__NAMESPACE__ . '\getEven');
 }

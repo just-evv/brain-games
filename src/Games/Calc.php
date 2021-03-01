@@ -7,7 +7,7 @@ namespace Brain\Games\Cli;
 use function cli\line;
 use function cli\prompt;
 
-function getResult(): array
+function getCalc(): array
 {
     $min = 1;
     $max = 10;
@@ -37,18 +37,5 @@ function getResult(): array
 
 function playCalc(): void
 {
-    playGame();
-    /*
-    $name = welcome();
-    $counter = 0;
-    while ($counter < 3) {
-        $rightAnswer = (string)getCalc($item, $numb1, $numb2);
-        //Question
-        line('What is the result of the expression?');
-        line("Question: {$numb1} {$item} {$numb2}");
-        $answer = prompt('Your answer');
-        //Checking
-        $counter = checkAnswer($answer, $rightAnswer, $name, $counter);
-    }
-    */
+    playGame(__NAMESPACE__ . '\getCalc');
 }
