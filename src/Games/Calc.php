@@ -7,7 +7,7 @@ namespace Brain\Games\Cli;
 use function cli\line;
 use function cli\prompt;
 
-function getCalc(string $item, int $numb1, int $numb2): int
+function makeCalc(string $item, int $numb1, int $numb2): int
 {
     $rightAnswer = 0;
     switch ($item) {
@@ -26,23 +26,24 @@ function getCalc(string $item, int $numb1, int $numb2): int
     return $rightAnswer;
 }
 
-function brainCalc(): void
+function getCalc(): array
 {
-    $name = welcome();
-
+    $min = 1;
+    $max = 10;
+    $numb1 = random_int($min, $max);
+    $numb2 = random_int($min, $max);
     $operators = ['+', '-', '*'];
-    $counter = 0;
-    while ($counter < 3) {
-        $numb1 = random_int(1, 10);
-        $numb2 = random_int(1, 10);
-        $randIndex = array_rand($operators);
-        $item = $operators[$randIndex];
-        $rightAnswer = (string)getCalc($item, $numb1, $numb2);
-        //Question
-        line('What is the result of the expression?');
-        line("Question: {$numb1} {$item} {$numb2}");
-        $answer = prompt('Your answer');
-        //Checking
-        $counter = checkAnswer($answer, $rightAnswer, $name, $counter);
-    }
+    $randIndex = array_rand($operators);
+    $item = $operators[$randIndex];
+    //calculating correct answer
+    $rightAnswer = makeCalc($item, $numb1, $numb2);
+    //creating question
+    $question = "What is the result of the expression?\nQuestion: {$numb1} {$item} {$numb2}";
+    $arr = [(string) $rightAnswer, $question];
+    return $arr;
+}
+
+function playCalc(): void
+{
+    playGame(__NAMESPACE__ . '\getCalc');
 }

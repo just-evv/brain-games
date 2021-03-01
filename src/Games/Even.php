@@ -7,24 +7,18 @@ namespace Brain\Games\Cli;
 use function cli\line;
 use function cli\prompt;
 
-function checkEven(int $number): string
+function getEven(): array
 {
-    return ($number % 2 === 0) ? 'yes' : 'no';
+    $min = 1;
+    $max = 100;
+    $number = random_int($min, $max);
+    $result = (($number % 2 === 0) ? 'yes' : 'no');
+    $question = "Answer 'yes' if the number is even, otherwise answer 'no'.\nQuestion: {$number}";
+    $arr = [$result, $question];
+    return $arr;
 }
 
-function brainEven(): void
+function playEven(): void
 {
-    $name = welcome();
-
-    $counter = 0;
-    while ($counter < 3) {
-        $number = random_int(1, 100);
-        $rightAnswer = checkEven($number);
-        //Question
-        line('Answer "yes" if the number is even, otherwise answer "no".');
-        line("Question: {$number}");
-        $answer = prompt('Your answer');
-        //Checking
-        $counter = checkAnswer($answer, $rightAnswer, $name, $counter);
-    }
+    playGame(__NAMESPACE__ . '\getEven');
 }

@@ -7,7 +7,7 @@ namespace Brain\Games\Cli;
 use function cli\line;
 use function cli\prompt;
 
-function welcome(): string
+function getName(): string
 {
     line('Welcome to the Brain Game!');
     $name = prompt('May I have your name?');
@@ -15,17 +15,48 @@ function welcome(): string
     return $name;
 }
 
-function checkAnswer(string $answer, string $rightAnswer, string $name, int $counter): int
+function getAnswer(string $question): string
 {
+    line($question);
+    $answer = prompt('Your answer');
+    return $answer;
+}
+
+function checkAnswer(
+    string $answer,
+    string $rightAnswer,
+    string $name,
+    int $count,
+    int $lastGame
+): int {
     if ($rightAnswer === $answer) {
-        $counter += 1;
+        $count += 1;
         echo("Correct!\n");
-        if ($counter === 3) {
+        if ($count === $lastGame) {
             echo("Congratulations, {$name}!\n");
         }
     } else {
         echo("'{$answer}' is wrong answer ;(. Correct answer was '{$rightAnswer}'.\nLet's try again, {$name}!\n");
-        $counter = 3;
+        $count = $lastGame;
     };
-    return $counter;
+    return $count;
+}
+
+function playGame(callable $game): void
+{
+    $name = getName();
+
+    $count = 0;
+    $lastGame = 3;
+
+    while ($count < $lastGame) {
+        //getResult return array with firts item - expected answer and the  second Qestion to be asked.
+        $arr = $game();
+        $rightAnswer = $arr[0];
+        $question = $arr[1];
+        //Question
+        $answer = getAnswer($question);
+        //Checking
+        $count = checkAnswer($answer, $rightAnswer, $name, $count, $lastGame);
+    }
 }
