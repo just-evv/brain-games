@@ -9,16 +9,12 @@ use function cli\prompt;
 
 function checkPrime(int $number): string
 {
-    if ($number === 1) {
-        return 'yes';
-    } else {
-        for ($i = 2; $i <= sqrt($number); $i++) {
-            if ($number % $i === 0) {
-                return 'no';
-            }
+    for ($i = 2; $i <= sqrt($number); $i++) {
+        if ($number % $i === 0) {
+            return 'no';
         }
-        return 'yes';
     }
+    return 'yes';
 }
 
 function getPrime(): array
