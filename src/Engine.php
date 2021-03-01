@@ -42,7 +42,7 @@ function checkAnswer(
     return $count;
 }
 
-function playGame(string $game): void
+function playGame(callable $game): void
 {
     $name = getName();
 
