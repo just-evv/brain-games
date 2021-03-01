@@ -7,7 +7,7 @@ namespace Brain\Games\Cli;
 use function cli\line;
 use function cli\prompt;
 
-function gcd(int $a, int $b): int
+function checkGcd(int $a, int $b): int
 {
     $l = $a > $b ? $a : $b;
     $s = $a > $b ? $b : $a;
@@ -21,7 +21,7 @@ function getGcd(): array
     $max = 10;
     $numb1 = random_int($min, $max);
     $numb2 = random_int($min, $max);
-    $rightAnswer = (string)gcd($numb1, $numb2);
+    $rightAnswer = (string)checkGcd($numb1, $numb2);
     $question = "Find the greatest common divisor of given numbers.\nQuestion: {$numb1} {$numb2}";
     $arr = [$rightAnswer, $question];
     return $arr;
