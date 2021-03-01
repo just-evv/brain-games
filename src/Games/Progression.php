@@ -7,12 +7,15 @@ namespace Brain\Games\Cli;
 use function cli\line;
 use function cli\prompt;
 
-function getProgression(): array
+function getSequence(): array
 {
-    $count = random_int(1, 20);
-    $increment = random_int(1, 10);
+    $min = 1;
+    $medium = 10;
+    $max = 20;
+    $count = random_int($min, $max);
+    $increment = random_int($min, $medium);
+    $length = random_int($medium, $max);
     $arr = [];
-    $length = random_int(10, 20);
     for ($i = 0; $i <= $length; $i++) {
         $arr[$i] = $count;
         $count = $count + $increment;
@@ -20,23 +23,19 @@ function getProgression(): array
     return $arr;
 }
 
-function brainProgression(): void
+function getProgression(): array
 {
-    $name = welcome();
+    $arr = getSequence();
+    $randIndex = array_rand($arr);
+    $rightAnswer = $arr[$randIndex];
+    $arr[$randIndex] = '..';
+    $tmp = implode(" ", $arr);
+    $question = "What number is missing in the progression?\nQuestion: {$tmp}";
+    $result = [(string) $rightAnswer, $question];
+    return $result;
+}
 
-    $counter = 0;
-    while ($counter < 3) {
-        //Creating a sequence
-        $arr = getProgression();
-        $randIndex = array_rand($arr);
-        $rightAnswer = (string)$arr[$randIndex];
-        $arr[$randIndex] = '..';
-        $tmp = implode(" ", $arr);
-        //Question
-        line('What number is missing in the progression?');
-        line("Question: {$tmp}");
-        $answer = prompt('Your answer');
-        //Checking
-        $counter = checkAnswer($answer, $rightAnswer, $name, $counter);
-    }
+function playProgression(): void
+{
+    playGame(__NAMESPACE__ . '\getProgression');
 }
