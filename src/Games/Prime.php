@@ -21,19 +21,18 @@ function checkPrime(int $number): string
     }
 }
 
-function brainPrime(): void
+function getPrime(): array
 {
-    $name = welcome();
+    $min = 1;
+    $max = 50;
+    $number = random_int($min, $max);
+    $rightAnswer = checkPrime($number);
+    $question = "Answer 'yes' if given number is prime. Otherwise answer 'no'.\nQuestion: {$number}";
+    $arr = [$rightAnswer, $question];
+    return $arr;
+}
 
-    $counter = 0;
-    while ($counter < 3) {
-        $number = random_int(1, 50);
-        $rightAnswer = checkPrime($number);
-        //Question
-        line('Answer "yes" if given number is prime. Otherwise answer "no".');
-        line("Question: {$number}");
-        $answer = prompt('Your answer');
-        //Checking
-        $counter = checkAnswer($answer, $rightAnswer, $name, $counter);
-    }
+function playPrime(): void
+{
+    playGame(__NAMESPACE__ . '\getPrime');
 }
