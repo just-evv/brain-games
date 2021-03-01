@@ -4,11 +4,14 @@
 "Brain Games"  - is a collection of five console games, built based on popular mobile apps. Every game ask questions and after recieving three correct answers, the game is finished with congratulations. Wrong answer abrupts the game and the user is being offered to try again.
 
 ### Games
-    * Calculator. Offers arithmetic operations calculation
-    * Progression. Finding a missed number in number sequences
-    * Determination if the given number is even
-    * Finding the Gratest Common Divisor of given numbers
-    * Determination if the given number is prime
+
+Included games:
+
+* Calculator. Offers arithmetic operations calculation
+* Progression. Finding a missed number in number sequences
+* Determination if the given number is even
+* Finding the Gratest Common Divisor of given numbers
+* Determination if the given number is prime
 
 
     
