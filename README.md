@@ -17,7 +17,7 @@ After cloning the repository use
 ```
 make install
 ```
-for installation the package. 
+for installation the package. [Example](https://asciinema.org/a/tG1qbWxCC861LHQcDTPFlvgc2?speed=3)
 
 ### Launch
 
