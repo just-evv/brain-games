@@ -7,7 +7,7 @@ namespace Brain\Games\Cli;
 use function cli\line;
 use function cli\prompt;
 
-function getName(): string
+function askName(): string
 {
     line('Welcome to the Brain Game!');
     $name = prompt('May I have your name?');
@@ -15,48 +15,33 @@ function getName(): string
     return $name;
 }
 
-function getAnswer(string $question): string
+function askAnswer(string $question): string
 {
     line($question);
     $answer = prompt('Your answer');
     return $answer;
 }
 
-function checkAnswer(
-    string $answer,
-    string $rightAnswer,
-    string $name,
-    int $count,
-    int $lastGame
-): int {
-    if ($rightAnswer === $answer) {
-        $count += 1;
-        echo("Correct!\n");
-        if ($count === $lastGame) {
-            echo("Congratulations, {$name}!\n");
-        }
-    } else {
-        echo("'{$answer}' is wrong answer ;(. Correct answer was '{$rightAnswer}'.\nLet's try again, {$name}!\n");
-        $count = $lastGame;
-    };
-    return $count;
-}
-
 function playGame(callable $game): void
 {
-    $name = getName();
+    $name = askName();
 
-    $count = 0;
-    $lastGame = 3;
+    $currentRound = 0;
+    $maxRound = 3;
 
-    while ($count < $lastGame) {
-        //getResult return array with firts item - expected answer and the  second Qestion to be asked.
-        $arr = $game();
-        $rightAnswer = $arr[0];
-        $question = $arr[1];
-        //Question
-        $answer = getAnswer($question);
-        //Checking
-        $count = checkAnswer($answer, $rightAnswer, $name, $count, $lastGame);
+    while ($currentRound < $maxRound) {
+        [$rightAnswer, $question] = $game();
+        $answer = askAnswer($question);
+
+        if ($rightAnswer !== $answer) {
+            line("'{$answer}' is wrong answer ;(. Correct answer was '{$rightAnswer}'.\nLet's try again, {$name}!\n");
+            return;
+        }
+        $currentRound += 1;
+        line('Correct!');
+
+        if ($currentRound === $maxRound) {
+            line("Congratulations, {$name}!");
+        }
     }
 }

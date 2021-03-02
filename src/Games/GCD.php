@@ -15,19 +15,20 @@ function findGcd(int $a, int $b): int
     return 0 === $remainder ? $s : findGcd($s, $remainder);
 }
 
-function getGcd(): array
+function getGcd(): callable
 {
-    $min = 1;
-    $max = 10;
-    $numb1 = random_int($min, $max);
-    $numb2 = random_int($min, $max);
-    $rightAnswer = (string)findGcd($numb1, $numb2);
-    $question = "Find the greatest common divisor of given numbers.\nQuestion: {$numb1} {$numb2}";
-    $arr = [$rightAnswer, $question];
-    return $arr;
+    return function (): array {
+        $min = 1;
+        $max = 10;
+        $numb1 = random_int($min, $max);
+        $numb2 = random_int($min, $max);
+        $rightAnswer = (string)findGcd($numb1, $numb2);
+        $question = "Find the greatest common divisor of given numbers.\nQuestion: {$numb1} {$numb2}";
+        return [$rightAnswer, $question];
+    };
 }
 
 function brainGcd(): void
 {
-    playGame(__NAMESPACE__ . '\getGcd');
+    playGame(getGcd());
 }
