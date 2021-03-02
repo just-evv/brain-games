@@ -7,9 +7,9 @@
 
 * Calculator. Offers arithmetic operations calculation
 * Progression. Finding a missing number in number sequences
-* Even. Determination if the given number is even
+* Even numbers. Determination if the given number is even
 * GCD. Finding the Gratest Common Divisor of given numbers
-* Prime. Determination if the given number is prime
+* Prime numbers. Determination if the given number is prime
 
 ### Installation
 
@@ -23,23 +23,23 @@ for installation the package. [Example](https://asciinema.org/a/tG1qbWxCC861LHQc
 
 Each game runs with specific command:
 
-* Calculator
+* Calculator. [example](https://asciinema.org/a/FplbNvEQTlv5xTvIndR1MWuK3?speed=2)
 ``` 
     make brain-calc
 ```
-* Progression
+* Progression. [example](https://asciinema.org/a/VOVGq4rytP4QV8Hl0Kuq9rUHx?speed=2)
 ```
     make brain-progression
 ```
-* Even
+* Even numbers. [example](https://asciinema.org/a/uwtxrSF59TMPil4vDlatZoclk?speed=2)
 ```
     make brain-even
 ```
-* GCD
+* GCD. [example](https://asciinema.org/a/KXBAqN18qMbWUDQrlLpjNcIum?speed=2)
 ```
     make brain-gcd
 ```
-* Prime
+* Prime numbers. [example](https://asciinema.org/a/2qbCQ1iaSBJczxJVHk0CAWta1?speed=2)
 ```
     make brain-prime
 ```
