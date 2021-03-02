@@ -23,19 +23,20 @@ function getSequence(): array
     return $arr;
 }
 
-function getProgression(): array
+function getProgression(): callable
 {
-    $arr = getSequence();
-    $randIndex = array_rand($arr);
-    $rightAnswer = $arr[$randIndex];
-    $arr[$randIndex] = '..';
-    $tmp = implode(" ", $arr);
-    $question = "What number is missing in the progression?\nQuestion: {$tmp}";
-    $result = [(string) $rightAnswer, $question];
-    return $result;
+    return function (): array {
+        $arr = getSequence();
+        $randIndex = array_rand($arr);
+        $rightAnswer = $arr[$randIndex];
+        $arr[$randIndex] = '..';
+        $tmp = implode(" ", $arr);
+        $question = "What number is missing in the progression?\nQuestion: {$tmp}";
+        return [(string) $rightAnswer, $question];
+    };    
 }
 
 function playProgression(): void
 {
-    playGame(__NAMESPACE__ . '\getProgression');
+    playGame(getProgression());
 }
