@@ -23,14 +23,24 @@ for installation the package.
 
 Each game runs with specific command:
 
-* Calculator 
+* Calculator
+``` 
     make brain-calc
+```
 * Progression
+```
     make brain-progression
+```
 * Even
+```
     make brain-even
+```
 * GCD
+```
     make brain-gcd
+```
 * Prime
+```
     make brain-prime
+```
     
