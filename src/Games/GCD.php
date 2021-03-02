@@ -17,19 +17,16 @@ function findGcd(int $a, int $b): int
 
 function getGcd(): callable
 {
-    return function(): array
-    {
+    return function (): array {
         $min = 1;
         $max = 10;
         $numb1 = random_int($min, $max);
         $numb2 = random_int($min, $max);
         $rightAnswer = (string)findGcd($numb1, $numb2);
-        $question = "Find the greatest common divisor of given numbers.\nQuestion: {$numb1} {$numb2}";
-       
-        return [$rightAnswer, $question];;    
+        $question = "Find the greatest common divisor of given numbers.\nQuestion: {$numb1} {$numb2}";       
+        return [$rightAnswer, $question];   
     };
 }
-
 
 function brainGcd(): void
 {

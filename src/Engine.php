@@ -29,19 +29,17 @@ function playGame(callable $game): void
     $currentRound = 0;
     $maxRound = 3;
 
-    while ($currentRound < $maxRound) {
-                
-        [$rightAnswer, $question] = $game(); 
-        
+    while ($currentRound < $maxRound) {                
+        [$rightAnswer, $question] = $game();        
         $answer = askAnswer($question);
-        
-        if ($rightAnswer !== $answer){
+
+        if ($rightAnswer !== $answer) {
             line("'{$answer}' is wrong answer ;(. Correct answer was '{$rightAnswer}'.\nLet's try again, {$name}!\n");
             return;
-        }        
+        }
         $currentRound += 1;
         line('Correct!');
-        
+
         if ($currentRound === $maxRound) {
             line("Congratulations, {$name}!");
         }
