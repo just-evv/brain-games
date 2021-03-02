@@ -41,7 +41,7 @@ function getCalc(): callable
         //creating question
         $question = "What is the result of the expression?\nQuestion: {$numb1} {$item} {$numb2}";
         return [(string) $rightAnswer, $question];
-    };    
+    };
 }
 
 function playCalc(): void

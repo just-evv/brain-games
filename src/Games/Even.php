@@ -16,7 +16,7 @@ function getEven(): callable
         $result = (($number % 2 === 0) ? 'yes' : 'no');
         $question = "Answer 'yes' if the number is even, otherwise answer 'no'.\nQuestion: {$number}";
         return  [$result, $question];
-    };    
+    };
 }
 
 function playEven(): void

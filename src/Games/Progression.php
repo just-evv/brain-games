@@ -33,7 +33,7 @@ function getProgression(): callable
         $tmp = implode(" ", $arr);
         $question = "What number is missing in the progression?\nQuestion: {$tmp}";
         return [(string) $rightAnswer, $question];
-    };    
+    };
 }
 
 function playProgression(): void

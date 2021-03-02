@@ -30,7 +30,7 @@ function getPrime(): callable
         $rightAnswer = checkPrime($number);
         $question = "Answer 'yes' if given number is prime. Otherwise answer 'no'.\nQuestion: {$number}";
         return [$rightAnswer, $question];
-    };    
+    };
 }
 
 function playPrime(): void
