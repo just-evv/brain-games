@@ -23,8 +23,8 @@ function getGcd(): callable
         $numb1 = random_int($min, $max);
         $numb2 = random_int($min, $max);
         $rightAnswer = (string)findGcd($numb1, $numb2);
-        $question = "Find the greatest common divisor of given numbers.\nQuestion: {$numb1} {$numb2}";       
-        return [$rightAnswer, $question];   
+        $question = "Find the greatest common divisor of given numbers.\nQuestion: {$numb1} {$numb2}";
+        return [$rightAnswer, $question];
     };
 }
 

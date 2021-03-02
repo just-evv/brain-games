@@ -29,8 +29,8 @@ function playGame(callable $game): void
     $currentRound = 0;
     $maxRound = 3;
 
-    while ($currentRound < $maxRound) {                
-        [$rightAnswer, $question] = $game();        
+    while ($currentRound < $maxRound) {
+        [$rightAnswer, $question] = $game();
         $answer = askAnswer($question);
 
         if ($rightAnswer !== $answer) {
