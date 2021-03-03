@@ -9,29 +9,34 @@ use function cli\prompt;
 
 function getSequence(): array
 {
-    $min = 1;
-    $medium = 10;
-    $max = 20;
-    $count = random_int($min, $max);
-    $increment = random_int($min, $medium);
-    $length = random_int($medium, $max);
-    $arr = [];
+    $sequenceRange = [1, 50];
+    $sequenceElement = random_int($sequenceRange[0], $sequenceRange[1]);
+
+    $incrementRange = [1, 10];
+    $increment = random_int($incrementRange[0], $incrementRange[1]);
+
+    $lenghtRange = [10, 20];
+    $length = random_int($lenghtRange[0], $lenghtRange[1]);
+
+    $sequence = [];
+
     for ($i = 0; $i <= $length; $i++) {
-        $arr[$i] = $count;
-        $count = $count + $increment;
+        $sequence[$i] = $sequenceElement;
+        $sequenceElement += $increment;
     };
-    return $arr;
+    return $sequence;
 }
 
 function getProgression(): callable
 {
     return function (): array {
-        $arr = getSequence();
-        $randIndex = array_rand($arr);
-        $rightAnswer = $arr[$randIndex];
-        $arr[$randIndex] = '..';
-        $tmp = implode(" ", $arr);
+        $progression = getSequence();
+        $randIndex = array_rand($progression);
+        $rightAnswer = $progression[$randIndex];
+        $progression[$randIndex] = '..';
+        $tmp = implode(' ', $progression);
         $question = "What number is missing in the progression?\nQuestion: {$tmp}";
+
         return [(string) $rightAnswer, $question];
     };
 }

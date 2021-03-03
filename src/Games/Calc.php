@@ -7,18 +7,18 @@ namespace Brain\Games\Cli;
 use function cli\line;
 use function cli\prompt;
 
-function makeCalc(string $item, int $numb1, int $numb2): int
+function makeCalc(string $item, int $num1, int $num2): int
 {
     $rightAnswer = 0;
     switch ($item) {
         case '+':
-            $rightAnswer = $numb1 + $numb2;
+            $rightAnswer = $num1 + $num2;
             break;
         case '-':
-            $rightAnswer = $numb1 - $numb2;
+            $rightAnswer = $num1 - $num2;
             break;
         case '*':
-            $rightAnswer = $numb1 * $numb2;
+            $rightAnswer = $num1 * $num2;
             break;
         default:
             break;
@@ -29,17 +29,17 @@ function makeCalc(string $item, int $numb1, int $numb2): int
 function getCalc(): callable
 {
     return function (): array {
-        $min = 1;
-        $max = 10;
-        $numb1 = random_int($min, $max);
-        $numb2 = random_int($min, $max);
+        $numRange = [1, 10];
+        $num1 = random_int($numRange[0], $numRange[1]);
+        $num2 = random_int($numRange[0], $numRange[1]);
+
         $operators = ['+', '-', '*'];
         $randIndex = array_rand($operators);
         $item = $operators[$randIndex];
-        //calculating correct answer
-        $rightAnswer = makeCalc($item, $numb1, $numb2);
-        //creating question
-        $question = "What is the result of the expression?\nQuestion: {$numb1} {$item} {$numb2}";
+
+        $rightAnswer = makeCalc($item, $num1, $num2);
+        $question = "What is the result of the expression?\nQuestion: {$num1} {$item} {$num2}";
+
         return [(string) $rightAnswer, $question];
     };
 }
