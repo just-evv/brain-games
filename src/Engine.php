@@ -37,7 +37,7 @@ function playGame(callable $game): void
 
         if ($rightAnswer !== $answer) {
             line("'{$answer}' is wrong answer ;(. Correct answer was '{$rightAnswer}'.");
-            line("Let's try again, {$name}!\n");
+            line("Let's try again, {$name}!");
             return;
         }
         $currentRound += 1;
