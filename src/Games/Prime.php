@@ -24,9 +24,8 @@ function checkPrime(int $number): string
 function getPrime(): callable
 {
     return function (): array {
-        $primeMin = 1;
-        $primeMax = 50;
-        $number = random_int($primeMin, $primeMax);
+        $primeRange = [1, 50];
+        $number = random_int($primeRange[0], $primeRange[1]);
 
         $rightAnswer = checkPrime($number);
         $question = "Answer 'yes' if given number is prime. Otherwise answer 'no'.\nQuestion: {$number}";

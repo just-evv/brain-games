@@ -18,14 +18,13 @@ function findGcd(int $a, int $b): int
 function getGcd(): callable
 {
     return function (): array {
-        $gcdMin = 1;
-        $gcdMax = 10;
+        $gcdRange = [1, 10];
 
-        $numb1 = random_int($gcdMin, $gcdMax);
-        $numb2 = random_int($gcdMin, $gcdMax);
+        $num1 = random_int($gcdRange[0], $gcdRange[1]);
+        $num2 = random_int($gcdRange[0], $gcdRange[1]);
 
-        $rightAnswer = (string)findGcd($numb1, $numb2);
-        $question = "Find the greatest common divisor of given numbers.\nQuestion: {$numb1} {$numb2}";
+        $rightAnswer = (string)findGcd($num1, $num2);
+        $question = "Find the greatest common divisor of given numers.\nQuestion: {$num1} {$num2}";
 
         return [$rightAnswer, $question];
     };
