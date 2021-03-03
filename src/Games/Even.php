@@ -10,11 +10,11 @@ use function cli\prompt;
 function getEven(): callable
 {
     return function (): array {
-        $min = 1;
-        $max = 100;
-        $number = random_int($min, $max);
+        $evenRange = [1, 100];
+        $number = random_int($evenRange[0], $evenRange[1]);
         $result = (($number % 2 === 0) ? 'yes' : 'no');
         $question = "Answer 'yes' if the number is even, otherwise answer 'no'.\nQuestion: {$number}";
+
         return  [$result, $question];
     };
 }

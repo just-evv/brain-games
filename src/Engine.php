@@ -7,6 +7,8 @@ namespace Brain\Games\Cli;
 use function cli\line;
 use function cli\prompt;
 
+const TOTAL_ROUNDS_COUNT = 3;
+
 function askName(): string
 {
     line('Welcome to the Brain Game!');
@@ -27,20 +29,21 @@ function playGame(callable $game): void
     $name = askName();
 
     $currentRound = 0;
-    $maxRound = 3;
 
-    while ($currentRound < $maxRound) {
+    while ($currentRound < TOTAL_ROUNDS_COUNT) {
         [$rightAnswer, $question] = $game();
+
         $answer = askAnswer($question);
 
         if ($rightAnswer !== $answer) {
-            line("'{$answer}' is wrong answer ;(. Correct answer was '{$rightAnswer}'.\nLet's try again, {$name}!\n");
+            line("'{$answer}' is wrong answer ;(. Correct answer was '{$rightAnswer}'.");
+            line("Let's try again, {$name}!\n");
             return;
         }
         $currentRound += 1;
         line('Correct!');
 
-        if ($currentRound === $maxRound) {
+        if ($currentRound === TOTAL_ROUNDS_COUNT) {
             line("Congratulations, {$name}!");
         }
     }
