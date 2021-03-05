@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace Brain\Games\GCD;
 
-use function cli\line;
-use function cli\prompt;
+use function Brain\Games\Engine\playGame;
 
 function findGcd(int $a, int $b): int
 {
