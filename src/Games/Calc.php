@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Brain\Games\Cli;
+namespace Brain\Games\Calc;
 
 use function cli\line;
 use function cli\prompt;
