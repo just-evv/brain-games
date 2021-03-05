@@ -2,10 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Brain\Games\Cli;
+namespace Brain\Games\Even;
 
-use function cli\line;
-use function cli\prompt;
+use function Brain\Games\Engine\playGame;
 
 function getEven(): callable
 {
