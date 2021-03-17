@@ -6,23 +6,20 @@ namespace Brain\Games\Calc;
 
 use function Brain\Games\Engine\playGame;
 
+const RULES = 'What is the result of the expression?';
+
 function makeCalc(string $item, int $num1, int $num2): int
 {
-    $rightAnswer = 0;
     switch ($item) {
         case '+':
-            $rightAnswer = $num1 + $num2;
-            break;
+            return $num1 + $num2;
         case '-':
-            $rightAnswer = $num1 - $num2;
-            break;
+            return $num1 - $num2;
         case '*':
-            $rightAnswer = $num1 * $num2;
-            break;
+            return $num1 * $num2;
         default:
             break;
     };
-    return $rightAnswer;
 }
 
 function getCalc(): callable
@@ -37,7 +34,7 @@ function getCalc(): callable
         $item = $operators[$randIndex];
 
         $rightAnswer = makeCalc($item, $num1, $num2);
-        $question = "What is the result of the expression?\nQuestion: {$num1} {$item} {$num2}";
+        $question = "{$num1} {$item} {$num2}";
 
         return [(string) $rightAnswer, $question];
     };
@@ -45,5 +42,5 @@ function getCalc(): callable
 
 function playCalc(): void
 {
-    playGame(getCalc());
+    playGame(getCalc(), RULES);
 }

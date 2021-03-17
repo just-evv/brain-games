@@ -6,13 +6,14 @@ namespace Brain\Games\Even;
 
 use function Brain\Games\Engine\playGame;
 
+const RULES = 'Answer "yes" if the number is even, otherwise answer "no".';
+
 function getEven(): callable
 {
     return function (): array {
-        $evenRange = [1, 100];
-        $number = random_int($evenRange[0], $evenRange[1]);
-        $result = (($number % 2 === 0) ? 'yes' : 'no');
-        $question = "Answer 'yes' if the number is even, otherwise answer 'no'.\nQuestion: {$number}";
+        $question = random_int(1, 100);
+        $result = (($question % 2 === 0) ? 'yes' : 'no');
+
 
         return  [$result, $question];
     };
@@ -20,5 +21,5 @@ function getEven(): callable
 
 function playEven(): void
 {
-    playGame(getEven());
+    playGame(getEven(), RULES);
 }

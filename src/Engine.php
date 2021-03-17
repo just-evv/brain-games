@@ -9,31 +9,21 @@ use function cli\prompt;
 
 const TOTAL_ROUNDS_COUNT = 3;
 
-function askName(): string
+function playGame(callable $game, string $rules): void
 {
     line('Welcome to the Brain Game!');
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
-    return $name;
-}
 
-function askAnswer(string $question): string
-{
-    line($question);
-    $answer = prompt('Your answer');
-    return $answer;
-}
-
-function playGame(callable $game): void
-{
-    $name = askName();
+    line($rules);
 
     $currentRound = 0;
 
     while ($currentRound < TOTAL_ROUNDS_COUNT) {
         [$rightAnswer, $question] = $game();
 
-        $answer = askAnswer($question);
+        line("Question: $question");
+        $answer = prompt('Your answer');
 
         if ($rightAnswer !== $answer) {
             line("'{$answer}' is wrong answer ;(. Correct answer was '{$rightAnswer}'.");
@@ -42,9 +32,6 @@ function playGame(callable $game): void
         }
         $currentRound += 1;
         line('Correct!');
-
-        if ($currentRound === TOTAL_ROUNDS_COUNT) {
-            line("Congratulations, {$name}!");
-        }
-    }
+    };
+    line("Congratulations, {$name}!");
 }

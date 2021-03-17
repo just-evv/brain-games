@@ -6,17 +6,19 @@ namespace Brain\Games\Prime;
 
 use function Brain\Games\Engine\playGame;
 
-function checkPrime(int $number): string
+const RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+
+function isPrime(int $number): bool
 {
     if ($number === 1) {
-        return 'no';
+        return false;
     } else {
         for ($i = 2; $i <= sqrt($number); $i++) {
             if ($number % $i === 0) {
-                return 'no';
+                return false;
             }
         }
-        return 'yes';
+        return true;
     }
 }
 
@@ -24,16 +26,15 @@ function getPrime(): callable
 {
     return function (): array {
         $primeRange = [1, 50];
-        $number = random_int($primeRange[0], $primeRange[1]);
+        $question = random_int($primeRange[0], $primeRange[1]);
 
-        $rightAnswer = checkPrime($number);
-        $question = "Answer 'yes' if given number is prime. Otherwise answer 'no'.\nQuestion: {$number}";
+        $rightAnswer = isPrime($question) ? 'yes' : 'no';
 
-        return [$rightAnswer, $question];
+        return [$rightAnswer, (string) $question];
     };
 }
 
 function playPrime(): void
 {
-    playGame(getPrime());
+    playGame(getPrime(), RULES);
 }
