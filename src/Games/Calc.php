@@ -18,7 +18,7 @@ function makeCalc(string $item, int $num1, int $num2): int
         case '*':
             return $num1 * $num2;
         default:
-            throw new Exception('Undefined operator');
+            throw new \Exception('Undefined operator');
     };
 }
 
