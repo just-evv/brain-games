@@ -6,6 +6,8 @@ namespace Brain\Games\Progression;
 
 use function Brain\Games\Engine\playGame;
 
+const RULES = 'What number is missing in the progression?';
+
 function getSequence(): array
 {
     $sequenceRange = [1, 50];
@@ -26,15 +28,14 @@ function getSequence(): array
     return $sequence;
 }
 
-function getProgression(): callable
+function getProgressionGame(): callable
 {
     return function (): array {
         $progression = getSequence();
         $randIndex = array_rand($progression);
         $rightAnswer = $progression[$randIndex];
         $progression[$randIndex] = '..';
-        $tmp = implode(' ', $progression);
-        $question = "What number is missing in the progression?\nQuestion: {$tmp}";
+        $question = implode(' ', $progression);
 
         return [(string) $rightAnswer, $question];
     };
@@ -42,5 +43,5 @@ function getProgression(): callable
 
 function playProgression(): void
 {
-    playGame(getProgression());
+    playGame(getProgressionGame(), RULES);
 }

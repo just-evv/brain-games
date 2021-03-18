@@ -6,6 +6,8 @@ namespace Brain\Games\GCD;
 
 use function Brain\Games\Engine\playGame;
 
+const RULES = 'Find the greatest common divisor of given numers.';
+
 function findGcd(int $a, int $b): int
 {
     $l = $a > $b ? $a : $b;
@@ -23,7 +25,7 @@ function getGcd(): callable
         $num2 = random_int($gcdRange[0], $gcdRange[1]);
 
         $rightAnswer = (string)findGcd($num1, $num2);
-        $question = "Find the greatest common divisor of given numers.\nQuestion: {$num1} {$num2}";
+        $question = "{$num1} {$num2}";
 
         return [$rightAnswer, $question];
     };
@@ -31,5 +33,5 @@ function getGcd(): callable
 
 function brainGcd(): void
 {
-    playGame(getGcd());
+    playGame(getGcd(), RULES);
 }
