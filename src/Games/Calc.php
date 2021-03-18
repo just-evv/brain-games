@@ -8,9 +8,9 @@ use function Brain\Games\Engine\playGame;
 
 const RULES = 'What is the result of the expression?';
 
-function makeCalc(string $item, int $num1, int $num2): int
+function makeCalc(string $operator, int $num1, int $num2): int
 {
-    switch ($item) {
+    switch ($operator) {
         case '+':
             return $num1 + $num2;
         case '-':
@@ -31,10 +31,10 @@ function getCalc(): callable
 
         $operators = ['+', '-', '*'];
         $randIndex = array_rand($operators);
-        $item = $operators[$randIndex];
+        $operator = $operators[$randIndex];
 
-        $rightAnswer = makeCalc($item, $num1, $num2);
-        $question = "{$num1} {$item} {$num2}";
+        $rightAnswer = makeCalc($operator, $num1, $num2);
+        $question = "{$num1} {$operator} {$num2}";
 
         return [(string) $rightAnswer, $question];
     };

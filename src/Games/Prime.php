@@ -25,8 +25,7 @@ function isPrime(int $number): bool
 function getPrime(): callable
 {
     return function (): array {
-        $primeRange = [1, 50];
-        $question = random_int($primeRange[0], $primeRange[1]);
+        $question = random_int(1, 50);
 
         $rightAnswer = isPrime($question) ? 'yes' : 'no';
 
