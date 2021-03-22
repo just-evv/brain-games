@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Brain\Games\Calc;
 
 use Exception;
+
 use function Brain\Games\Engine\playGame;
 
 const RULES = 'What is the result of the expression?';
