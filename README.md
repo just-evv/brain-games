@@ -1,5 +1,5 @@
 ## Brain Games
-[![Actions Status](https://github.com/just-evv/php-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/just-evv/php-project-lvl1/actions) [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability) [![PHP CI](https://github.com/just-evv/php-project-lvl1/workflows/PHP%20CI/badge.svg)](https://github.com/just-evv/php-project-lvl1/actions)
+[![Actions Status](https://github.com/just-evv/php-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/just-evv/php-project-lvl1/actions) [![Maintainability](https://api.codeclimate.com/v1/badges/439173aa51389545cf61/maintainability)](https://codeclimate.com/github/just-evv/php-project-lvl1/maintainability) [![PHP CI](https://github.com/just-evv/php-project-lvl1/workflows/PHP%20CI/badge.svg)](https://github.com/just-evv/php-project-lvl1/actions)
 
 "Brain Games"  - is a collection of five console games based on popular mobile apps. Every game asks questions and after recieving three correct answers, the game is finished with congratulations. Wrong answer abrupts the game and the user is being offered to try again.
 
