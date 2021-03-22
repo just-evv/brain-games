@@ -6,14 +6,14 @@ namespace Brain\Games\GCD;
 
 use function Brain\Games\Engine\playGame;
 
-const RULES = 'Find the greatest common divisor of given numers.';
+const RULES = 'Find the greatest common divisor of given numbers.';
 
 function findGcd(int $a, int $b): int
 {
     $l = $a > $b ? $a : $b;
     $s = $a > $b ? $b : $a;
     $remainder = $l % $s;
-    return 0 === $remainder ? $s : findGcd($s, $remainder);
+    return $remainder === 0 ? $s : findGcd($s, $remainder);
 }
 
 function getGcd(): callable

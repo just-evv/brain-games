@@ -12,7 +12,7 @@ function getEven(): callable
 {
     return function (): array {
         $question = random_int(1, 100);
-        $result = (($question % 2 === 0) ? 'yes' : 'no');
+        $result = ($question % 2) === 0 ? 'yes' : 'no';
 
         return  [$result, $question];
     };

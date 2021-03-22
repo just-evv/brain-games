@@ -14,7 +14,6 @@ function playGame(callable $game, string $rules): void
     line('Welcome to the Brain Game!');
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
-
     line($rules);
 
     $currentRound = 0;
@@ -30,8 +29,10 @@ function playGame(callable $game, string $rules): void
             line("Let's try again, {$name}!");
             return;
         }
+
         $currentRound += 1;
         line('Correct!');
-    };
+    }
+
     line("Congratulations, {$name}!");
 }

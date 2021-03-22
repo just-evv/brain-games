@@ -12,21 +12,21 @@ function isPrime(int $number): bool
 {
     if ($number === 1) {
         return false;
-    } else {
-        for ($i = 2; $i <= sqrt($number); $i++) {
-            if ($number % $i === 0) {
-                return false;
-            }
-        }
-        return true;
     }
+
+    for ($i = 2; $i <= sqrt($number); $i++) {
+        if ($number % $i === 0) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 function getPrime(): callable
 {
     return function (): array {
         $question = random_int(1, 50);
-
         $rightAnswer = isPrime($question) ? 'yes' : 'no';
 
         return [$rightAnswer, (string) $question];

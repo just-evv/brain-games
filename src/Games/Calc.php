@@ -4,10 +4,18 @@ declare(strict_types=1);
 
 namespace Brain\Games\Calc;
 
+use Exception;
 use function Brain\Games\Engine\playGame;
 
 const RULES = 'What is the result of the expression?';
 
+/**
+ * @param string $operator
+ * @param int $num1
+ * @param int $num2
+ * @return int
+ * @throws Exception
+ */
 function makeCalc(string $operator, int $num1, int $num2): int
 {
     switch ($operator) {
@@ -18,8 +26,8 @@ function makeCalc(string $operator, int $num1, int $num2): int
         case '*':
             return $num1 * $num2;
         default:
-            throw new \Exception('Undefined operator');
-    };
+            throw new Exception('Undefined operator');
+    }
 }
 
 function getCalc(): callable
